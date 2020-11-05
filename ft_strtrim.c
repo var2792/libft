@@ -45,6 +45,22 @@ static int	suf_num_set(const char *s1, const char *set)
 	return (len - i - 1);
 }
 
+static char	*copy_str(const char *s1)
+{
+	int		j;
+	int		len;
+	char	*res;
+
+	len = ft_strlen(s1);
+	if (!(res = malloc(sizeof(char) * len)))
+		return (NULL);
+	j = -1;
+	while (++j < len)
+		res[j] = s1[j];
+	res[j] = '\0';
+	return (res);
+}
+
 char		*ft_strtrim(const char *s1, const char *set)
 {
 	size_t	i;
@@ -52,8 +68,10 @@ char		*ft_strtrim(const char *s1, const char *set)
 	size_t	lst;
 	char	*res;
 
-	if (!s1 || !set)
+	if (!s1)
 		return (NULL);
+	if (!set)
+		return (copy_str(s1));
 	lst = ft_strlen(s1) - suf_num_set(s1, set);
 	i = pre_num_set(s1, set);
 	if (i == ft_strlen(s1))

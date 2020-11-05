@@ -46,6 +46,14 @@ static int		size_str(const char *str, int *nul, char c)
 	return (n);
 }
 
+static char		**free_strs(char **r, int j)
+{
+	while (--j)
+		free(r[j]);
+	free(r);
+	return (NULL);
+}
+
 char			**ft_split(const char *s, char c)
 {
 	int		i;
@@ -65,7 +73,7 @@ char			**ft_split(const char *s, char c)
 	{
 		w_len = size_str(s, &i, c);
 		if (!(r[j] = (char *)malloc(sizeof(char) * (w_len + 1))))
-			return (0);
+			return (free_strs(r, j));
 		k = 0;
 		while (w_len)
 			r[j][k++] = s[i - w_len--];

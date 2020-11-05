@@ -15,11 +15,11 @@
 int	ft_memcmp(const void *lhs, const void *rhs, size_t n)
 {
 	int		raz;
-	size_t	i;
+	int		i;
 
 	i = -1;
 	raz = 0;
-	while ((++i < n) && (raz == 0))
+	while ((++i < (int)n) && (raz == 0))
 		raz = ((unsigned char*)lhs)[i] - ((unsigned char*)rhs)[i];
 	return (raz);
 }
