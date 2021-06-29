@@ -14,7 +14,7 @@
 
 static int		r_size(const char *s, char c)
 {
-	unsigned int len;
+	size_t len;
 
 	len = 0;
 	while (*s)
@@ -33,7 +33,7 @@ static int		r_size(const char *s, char c)
 
 static int		size_str(const char *str, int *nul, char c)
 {
-	int n;
+	size_t n;
 
 	n = 0;
 	while (str[*nul] == c)
@@ -56,11 +56,11 @@ static char		**free_strs(char **r, int j)
 
 char			**ft_split(const char *s, char c)
 {
-	int		i;
-	int		j;
-	int		k;
+	size_t	i;
+	size_t	j;
+	size_t	k;
 	char	**r;
-	int		w_len;
+	size_t	w_len;
 
 	i = 0;
 	j = 0;

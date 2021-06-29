@@ -14,19 +14,7 @@
 
 size_t		ft_strlen(const char *str)
 {
-	unsigned long i;
-
-	i = 0;
-	if (!str)
-		return (0);
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
-
-int			ft_strilen(const char *str)
-{
-	unsigned long i;
+	size_t i;
 
 	i = 0;
 	if (!str)
